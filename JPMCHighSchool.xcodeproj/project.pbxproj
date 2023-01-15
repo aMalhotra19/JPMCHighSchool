@@ -14,6 +14,10 @@
 		9DDC1FE02973D92F00014F0E /* JPMCHighSchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FDF2973D92F00014F0E /* JPMCHighSchoolTests.swift */; };
 		9DDC1FEA2973D92F00014F0E /* JPMCHighSchoolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FE92973D92F00014F0E /* JPMCHighSchoolUITests.swift */; };
 		9DDC1FEC2973D92F00014F0E /* JPMCHighSchoolUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FEB2973D92F00014F0E /* JPMCHighSchoolUITestsLaunchTests.swift */; };
+		9DDC1FFB2973DB3500014F0E /* HighSchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FFA2973DB3500014F0E /* HighSchoolViewModel.swift */; };
+		9DDC1FFD2973DB4100014F0E /* HighSchoolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FFC2973DB4100014F0E /* HighSchoolModel.swift */; };
+		9DDC20002973DBA600014F0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FFF2973DBA600014F0E /* NetworkManager.swift */; };
+		9DDC20022973DBB500014F0E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC20012973DBB500014F0E /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,11 @@
 		9DDC1FE52973D92F00014F0E /* JPMCHighSchoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JPMCHighSchoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DDC1FE92973D92F00014F0E /* JPMCHighSchoolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPMCHighSchoolUITests.swift; sourceTree = "<group>"; };
 		9DDC1FEB2973D92F00014F0E /* JPMCHighSchoolUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPMCHighSchoolUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9DDC1FFA2973DB3500014F0E /* HighSchoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighSchoolViewModel.swift; sourceTree = "<group>"; };
+		9DDC1FFC2973DB4100014F0E /* HighSchoolModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighSchoolModel.swift; sourceTree = "<group>"; };
+		9DDC1FFF2973DBA600014F0E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9DDC20012973DBB500014F0E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9DDC20032973F17300014F0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +103,12 @@
 		9DDC1FCD2973D92D00014F0E /* JPMCHighSchool */ = {
 			isa = PBXGroup;
 			children = (
+				9DDC20032973F17300014F0E /* Info.plist */,
 				9DDC1FCE2973D92D00014F0E /* JPMCHighSchoolApp.swift */,
 				9DDC1FD02973D92D00014F0E /* ContentView.swift */,
+				9DDC1FFE2973DB8D00014F0E /* Service */,
+				9DDC1FF92973DB0700014F0E /* ViewModel */,
+				9DDC1FF82973DAF700014F0E /* Model */,
 				9DDC1FD22973D92F00014F0E /* Assets.xcassets */,
 				9DDC1FD42973D92F00014F0E /* Preview Content */,
 			);
@@ -125,6 +138,31 @@
 				9DDC1FEB2973D92F00014F0E /* JPMCHighSchoolUITestsLaunchTests.swift */,
 			);
 			path = JPMCHighSchoolUITests;
+			sourceTree = "<group>";
+		};
+		9DDC1FF82973DAF700014F0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC1FFC2973DB4100014F0E /* HighSchoolModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DDC1FF92973DB0700014F0E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC1FFA2973DB3500014F0E /* HighSchoolViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9DDC1FFE2973DB8D00014F0E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC1FFF2973DBA600014F0E /* NetworkManager.swift */,
+				9DDC20012973DBB500014F0E /* NetworkService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +296,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DDC1FD12973D92D00014F0E /* ContentView.swift in Sources */,
+				9DDC1FFD2973DB4100014F0E /* HighSchoolModel.swift in Sources */,
+				9DDC20002973DBA600014F0E /* NetworkManager.swift in Sources */,
 				9DDC1FCF2973D92D00014F0E /* JPMCHighSchoolApp.swift in Sources */,
+				9DDC20022973DBB500014F0E /* NetworkService.swift in Sources */,
+				9DDC1FFB2973DB3500014F0E /* HighSchoolViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +462,7 @@
 				DEVELOPMENT_TEAM = G5MKB94D7W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = JPMCHighSchool/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -449,7 +491,7 @@
 				DEVELOPMENT_TEAM = G5MKB94D7W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = JPMCHighSchool/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

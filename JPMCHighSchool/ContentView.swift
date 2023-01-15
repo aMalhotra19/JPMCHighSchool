@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = HighSchoolViewModel()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            NavigationView {
+                HighSchoolView(viewModel: viewModel)
+                    .navigationTitle("High Schools")
+            }
         }
-        .padding()
+        .onAppear{viewModel.getData()}
+    }
+}
+
+struct HighSchoolView: View {
+    @ObservedObject var viewModel: HighSchoolViewModel
+    var body: some View {
+        List {
+            ForEach(viewModel.schools, id: \.dbn) { school in
+                NavigationLink {
+                    //
+                } label: {
+                    Text(school.schoolName)
+                }
+            }
+        }
     }
 }
 
