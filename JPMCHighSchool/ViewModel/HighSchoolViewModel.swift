@@ -9,29 +9,56 @@ import Foundation
 import Combine
 
 enum State {
-    case empty
+    case loading
     case success
     case failure(Error)
 }
 
 class HighSchoolViewModel: ObservableObject {
     @Published var schools: [HighSchool] = []
-    @Published private(set) var state: State = State.empty
+    @Published var scores: SATScores = []
+    @Published var score: SATScore?
+    @Published private(set) var schoolState: State = .loading
+    @Published private(set) var scoreState: State = .loading
     var cancellables = Set<AnyCancellable>()
     
-    func getData() {
-        NetworkManager(urlString: "https://data.cityofnewyork.us/resource/7crd-d9xh.json").getData()
+    func getSchoolData() {
+        schoolState = .loading
+        return NetworkManager(urlString: "https://data.cityofnewyork.us/resource/7crd-d9xh.json").getData()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
-                    self.state = .failure(error)
+                    self.schoolState = .failure(error)
                 case .finished:
-                    self.state = .success
+                    self.schoolState = .success
                 }
             }, receiveValue: { schools in
                 self.schools = schools
             })
             .store(in: &cancellables)
-        
+            
+    }
+    
+    func getSATScores() {
+        scoreState = .loading
+        NetworkManager(urlString: "https://data.cityofnewyork.us/resource/f9bf-2cp4.json").getData()
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    self.scoreState = .failure(error)
+                case .finished:
+                    self.scoreState = .success
+                }
+            }, receiveValue: { scores in
+                self.scores = scores
+            })
+            .store(in: &cancellables)
+    }
+
+    func getSatScoreFor(_ id: String) -> SATScore? {
+        if scores.count > 0 {
+            return scores.first { $0.dbn == id }
+        }
+        return nil
     }
 }

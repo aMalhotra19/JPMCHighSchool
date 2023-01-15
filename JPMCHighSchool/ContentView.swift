@@ -16,22 +16,7 @@ struct ContentView: View {
                     .navigationTitle("High Schools")
             }
         }
-        .onAppear{viewModel.getData()}
-    }
-}
-
-struct HighSchoolView: View {
-    @ObservedObject var viewModel: HighSchoolViewModel
-    var body: some View {
-        List {
-            ForEach(viewModel.schools, id: \.dbn) { school in
-                NavigationLink {
-                    //
-                } label: {
-                    Text(school.schoolName)
-                }
-            }
-        }
+        .onAppear{viewModel.getSchoolData()}
     }
 }
 

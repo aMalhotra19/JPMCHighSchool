@@ -30,4 +30,17 @@ class NetworkManager: ApiCreator {
                     .eraseToAnyPublisher()
             }.eraseToAnyPublisher()
     }
+    
+    func getData() -> AnyPublisher<SATScores, URLError> {
+        guard let url = URL(string: urlString) else {fatalError()}
+        return NetworkService.shared.getData(url: url)
+            .flatMap { data in
+                return Just(data)
+                    .decode(type: SATScores.self, decoder: JSONDecoder())
+                    .mapError({ _ in
+                        URLError(.cannotDecodeRawData)
+                    })
+                    .eraseToAnyPublisher()
+            }.eraseToAnyPublisher()
+    }
 }
