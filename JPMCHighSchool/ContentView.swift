@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             HighSchoolView(viewModel: viewModel)
-                .navigationTitle("High Schools")
+                .navigationTitle(Constants.highSchoolTitle)
                 .task{viewModel.getSchoolData()}
         }
     }

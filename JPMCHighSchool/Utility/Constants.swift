@@ -18,4 +18,7 @@ enum Constants {
     static let mathScore = "Math Score:"
     static let imageError = "magnifyingglass"
     static let tryAgain = "Try Again"
+    static let unknownError = "Unknown error"
+    static let decodeError = "Decode Error code"
+    static let internetError = "No internet connection"
 }

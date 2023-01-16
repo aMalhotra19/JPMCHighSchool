@@ -17,11 +17,11 @@ extension HTTPError {
     var errorDescription: String? {
         switch self {
         case .unknown:
-            return "Unknown error"
+            return Constants.unknownError
         case .decodeError:
-            return "Decode Error code"
+            return Constants.decodeError
         case .noInternet:
-            return "No internet connection"
+            return Constants.internetError
         }
     }
 }
