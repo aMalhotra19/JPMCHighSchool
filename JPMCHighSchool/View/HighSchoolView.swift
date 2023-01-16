@@ -16,7 +16,11 @@ struct HighSchoolView: View {
                 ProgressView()
             case .success:
                 loadDetailView()
-                    .onAppear {viewModel.getSATScores()}
+                    .onAppear {
+                        if viewModel.schools.count > 0 {
+                            viewModel.getSATScores()
+                        }
+                    }
             case .failure(let error):
                 ErrorView(error: error.localizedDescription)
             }
@@ -39,11 +43,19 @@ struct HighSchoolView: View {
                         Text(school.schoolName)
                     }
                 }
+            }.refreshable {
+                refreshTask()
             }
         case .failure(_):
             Text(Constants.retryError)
         case .loading:
             ProgressView()
+        }
+    }
+    
+    private func refreshTask() {
+        DispatchQueue.main.async {
+            viewModel.getSchoolData()
         }
     }
 }
