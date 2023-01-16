@@ -12,19 +12,29 @@ struct SATDetailView: View {
     @ObservedObject var viewModel: HighSchoolViewModel
     
     var score: SATScore? {
+        //Computed value from the dbn
         viewModel.getSatScoreFor(school.dbn)
     }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             switch viewModel.scoreState {
+                
+                //Success case
             case .success:
+                //when score is available
                 if score != nil {
                     getScoreView()
                 } else {
-                    ErrorView(error: Constants.noData)
+                    //when score is not available
+                    ErrorView(error: Constants.noData, retryAction: nil)
                 }
-            case .failure(_):
-                Text(Constants.retryError)
+                
+                //Failure case
+            case .failure(let error):
+                Text(error.localizedDescription)
+                
+                //API call in progress
             case .loading:
                 ProgressView()
             }

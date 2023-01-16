@@ -19,10 +19,18 @@ struct HighSchoolView: View {
                 }
             }
         }
+        // Overlay to display various states
         .overlay(overlayView)
         .padding(.bottom, 20)
+        .refreshable {
+            //Pull to refresh
+            refreshAction()
+        }
     }
     
+    func refreshAction() {
+        viewModel.getSchoolData()
+    }
     // cases handler fetching data
     @ViewBuilder
     private var overlayView: some View {
@@ -33,11 +41,11 @@ struct HighSchoolView: View {
             
             // Success with no results
         case .success where viewModel.schools.isEmpty:
-            ErrorView(error: Constants.noData)
+            ErrorView(error: Constants.noData, retryAction: nil)
             
             // Fail with error
         case .failure(let error):
-            ErrorView(error: error.localizedDescription)
+            ErrorView(error: error.localizedDescription, retryAction: refreshAction)
             
             //Success with data
         default: EmptyView()

@@ -14,9 +14,6 @@ struct ContentView: View {
             HighSchoolView(viewModel: viewModel)
                 .navigationTitle("High Schools")
                 .task{viewModel.getSchoolData()}
-                .refreshable {
-                    viewModel.getSchoolData()
-                }
         }
     }
 }
