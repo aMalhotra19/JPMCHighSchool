@@ -20,6 +20,8 @@
 		9DDC20022973DBB500014F0E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC20012973DBB500014F0E /* NetworkService.swift */; };
 		9DDC20052974B01800014F0E /* SATDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC20042974B01800014F0E /* SATDetailView.swift */; };
 		9DDC20082974B10800014F0E /* HighSchoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC20072974B10800014F0E /* HighSchoolView.swift */; };
+		9DDC200A2974C5B600014F0E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC20092974C5B600014F0E /* ErrorView.swift */; };
+		9DDC200D2974DF2300014F0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC200C2974DF2300014F0E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		9DDC20032973F17300014F0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9DDC20042974B01800014F0E /* SATDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATDetailView.swift; sourceTree = "<group>"; };
 		9DDC20072974B10800014F0E /* HighSchoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighSchoolView.swift; sourceTree = "<group>"; };
+		9DDC20092974C5B600014F0E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		9DDC200C2974DF2300014F0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				9DDC20032973F17300014F0E /* Info.plist */,
 				9DDC1FCE2973D92D00014F0E /* JPMCHighSchoolApp.swift */,
 				9DDC1FD02973D92D00014F0E /* ContentView.swift */,
+				9DDC200B2974DF1300014F0E /* Utility */,
 				9DDC20062974B01E00014F0E /* View */,
 				9DDC1FFE2973DB8D00014F0E /* Service */,
 				9DDC1FF92973DB0700014F0E /* ViewModel */,
@@ -174,9 +179,18 @@
 			isa = PBXGroup;
 			children = (
 				9DDC20042974B01800014F0E /* SATDetailView.swift */,
+				9DDC20092974C5B600014F0E /* ErrorView.swift */,
 				9DDC20072974B10800014F0E /* HighSchoolView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9DDC200B2974DF1300014F0E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC200C2974DF2300014F0E /* Constants.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,8 +328,10 @@
 				9DDC20082974B10800014F0E /* HighSchoolView.swift in Sources */,
 				9DDC1FFD2973DB4100014F0E /* HighSchoolModel.swift in Sources */,
 				9DDC20002973DBA600014F0E /* NetworkManager.swift in Sources */,
+				9DDC200D2974DF2300014F0E /* Constants.swift in Sources */,
 				9DDC1FCF2973D92D00014F0E /* JPMCHighSchoolApp.swift in Sources */,
 				9DDC20022973DBB500014F0E /* NetworkService.swift in Sources */,
+				9DDC200A2974C5B600014F0E /* ErrorView.swift in Sources */,
 				9DDC1FFB2973DB3500014F0E /* HighSchoolViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

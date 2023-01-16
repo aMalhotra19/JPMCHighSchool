@@ -17,8 +17,8 @@ struct HighSchoolView: View {
             case .success:
                 loadDetailView()
                     .onAppear {viewModel.getSATScores()}
-            case .failure(_):
-                Text("Error loading data")
+            case .failure(let error):
+                ErrorView(error: error.localizedDescription)
             }
         }
     }
@@ -30,7 +30,10 @@ struct HighSchoolView: View {
             List {
                 ForEach(viewModel.schools, id: \.dbn) { school in
                     NavigationLink {
-                        if let score = viewModel.getSatScoreFor(school.dbn) {         SATDetailView(score: score)
+                        if let score = viewModel.getSatScoreFor(school.dbn) {
+                            SATDetailView(score: score)
+                        } else {
+                            ErrorView(error: Constants.noData)
                         }
                     } label: {
                         Text(school.schoolName)
@@ -38,7 +41,7 @@ struct HighSchoolView: View {
                 }
             }
         case .failure(_):
-            Text("Error loading data")
+            Text(Constants.retryError)
         case .loading:
             ProgressView()
         }

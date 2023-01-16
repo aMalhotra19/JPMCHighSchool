@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+
 protocol ApiCreator {
     var urlString: String { get }
 }
@@ -18,7 +19,7 @@ class NetworkManager: ApiCreator {
         self.urlString = urlString
     }
     
-    func getData() -> AnyPublisher<[HighSchool], URLError> {
+    func getSchoolData() -> AnyPublisher<[HighSchool], URLError> {
         guard let url = URL(string: urlString) else {fatalError()}
         return NetworkService.shared.getData(url: url)
             .flatMap { data in
@@ -31,7 +32,7 @@ class NetworkManager: ApiCreator {
             }.eraseToAnyPublisher()
     }
     
-    func getData() -> AnyPublisher<SATScores, URLError> {
+    func getScoreData() -> AnyPublisher<SATScores, URLError> {
         guard let url = URL(string: urlString) else {fatalError()}
         return NetworkService.shared.getData(url: url)
             .flatMap { data in

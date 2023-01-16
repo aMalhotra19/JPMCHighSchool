@@ -24,7 +24,7 @@ class HighSchoolViewModel: ObservableObject {
     
     func getSchoolData() {
         schoolState = .loading
-        return NetworkManager(urlString: "https://data.cityofnewyork.us/resource/7crd-d9xh.json").getData()
+        return NetworkManager(urlString: Constants.urlHighSchool).getSchoolData()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
@@ -40,8 +40,11 @@ class HighSchoolViewModel: ObservableObject {
     }
     
     func getSATScores() {
+        if scores.count > 0 {
+            return
+        }
         scoreState = .loading
-        NetworkManager(urlString: "https://data.cityofnewyork.us/resource/f9bf-2cp4.json").getData()
+        NetworkManager(urlString: Constants.urlSatResult).getScoreData()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):

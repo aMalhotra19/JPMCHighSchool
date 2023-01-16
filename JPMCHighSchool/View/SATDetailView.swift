@@ -17,29 +17,29 @@ struct SATDetailView: View {
                 Spacer()
             }
             HStack {
-                Text("Reading Score: ")
+                Text(Constants.writingScore)
                 Text(score.satWritingAvgScore)
                 Spacer()
             }
             HStack {
-                Text("Math Score: ")
+                Text(Constants.mathScore)
                 Text(score.satMathAvgScore)
             }
             HStack {
-                Text("Writing Score: ")
+                Text(Constants.readingScore)
                 Text(score.satCriticalReadingAvgScore)
             }
             Spacer()
         }
         .padding(.leading, 20.0)
         .padding(.top, 10.0)
-        .navigationTitle("SAT Score")
+        .navigationTitle(Constants.satScoreTitle)
         .font(.subheadline)
     }
 }
 
 struct SATDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SATDetailView(score: SATScore(dbn: "jbjhb", schoolName: "High Scholl", numOfSatTestTakers: "200", satCriticalReadingAvgScore: "100", satMathAvgScore: "100", satWritingAvgScore: "100"))
+        SATDetailView(score: SATScore(dbn: "test", schoolName: "High School", numOfSatTestTakers: "200", satCriticalReadingAvgScore: "100", satMathAvgScore: "100", satWritingAvgScore: "100"))
     }
 }
