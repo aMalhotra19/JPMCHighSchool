@@ -32,6 +32,10 @@ class HighSchoolViewModel: ObservableObject {
         self.manager = manager
     }
     
+    ///getSchoolData:
+    ///This function makes call to NetworkManager and recieves [HighSchool] DATA
+    ///Updates Schools value
+ 
     @MainActor
     func getSchoolData() {
         if schools.count > 0 {
@@ -51,7 +55,10 @@ class HighSchoolViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
-    
+        
+    ///getSATScores:
+    ///This function makes call to NetworkManager and recieves SATAScore DATA
+    ///Updates score value
     @MainActor
     func getSATScores() {
         if scores.count > 0 {

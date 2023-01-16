@@ -19,8 +19,7 @@ class NetworkManager: ApiCreator {
     
     init(urlString: String) {
         self.urlString = urlString
-    }
-    
+    }    
     
     ///getSchoolData:
     ///This function makes api call to NetworkService and recieves DATA
