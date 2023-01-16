@@ -45,7 +45,7 @@ struct HighSchoolView: View {
             
             // Fail with error
         case .failure(let error):
-            ErrorView(error: error.localizedDescription, retryAction: refreshAction)
+            ErrorView(error: error.errorDescription ?? "", retryAction: refreshAction)
             
             //Success with data
         default: EmptyView()

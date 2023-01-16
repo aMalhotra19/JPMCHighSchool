@@ -11,7 +11,7 @@ import Combine
 enum State {
     case loading
     case success
-    case failure(Error)
+    case failure(HTTPError)
 }
 
 class HighSchoolViewModel: ObservableObject {

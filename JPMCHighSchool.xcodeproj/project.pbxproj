@@ -22,6 +22,7 @@
 		9DDC20082974B10800014F0E /* HighSchoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC20072974B10800014F0E /* HighSchoolView.swift */; };
 		9DDC200A2974C5B600014F0E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC20092974C5B600014F0E /* ErrorView.swift */; };
 		9DDC200D2974DF2300014F0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC200C2974DF2300014F0E /* Constants.swift */; };
+		9DDC200F2974FECD00014F0E /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC200E2974FECD00014F0E /* HTTPError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		9DDC20072974B10800014F0E /* HighSchoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighSchoolView.swift; sourceTree = "<group>"; };
 		9DDC20092974C5B600014F0E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9DDC200C2974DF2300014F0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9DDC200E2974FECD00014F0E /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				9DDC200C2974DF2300014F0E /* Constants.swift */,
+				9DDC200E2974FECD00014F0E /* HTTPError.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DDC1FD12973D92D00014F0E /* ContentView.swift in Sources */,
+				9DDC200F2974FECD00014F0E /* HTTPError.swift in Sources */,
 				9DDC20052974B01800014F0E /* SATDetailView.swift in Sources */,
 				9DDC20082974B10800014F0E /* HighSchoolView.swift in Sources */,
 				9DDC1FFD2973DB4100014F0E /* HighSchoolModel.swift in Sources */,
