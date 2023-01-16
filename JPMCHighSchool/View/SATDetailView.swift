@@ -8,38 +8,61 @@
 import SwiftUI
 
 struct SATDetailView: View {
-    var score: SATScore
+    var school: HighSchool
+    @ObservedObject var viewModel: HighSchoolViewModel
+    
+    var score: SATScore? {
+        viewModel.getSatScoreFor(school.dbn)
+    }
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Text(score.schoolName)
-                    .font(.title3)
-                Spacer()
+            switch viewModel.scoreState {
+            case .success:
+                if score != nil {
+                    getScoreView()
+                } else {
+                    ErrorView(error: Constants.noData)
+                }
+            case .failure(_):
+                Text(Constants.retryError)
+            case .loading:
+                ProgressView()
             }
-            HStack {
-                Text(Constants.writingScore)
-                Text(score.satWritingAvgScore)
-                Spacer()
-            }
-            HStack {
-                Text(Constants.mathScore)
-                Text(score.satMathAvgScore)
-            }
-            HStack {
-                Text(Constants.readingScore)
-                Text(score.satCriticalReadingAvgScore)
-            }
-            Spacer()
         }
         .padding(.leading, 20.0)
         .padding(.top, 10.0)
         .navigationTitle(Constants.satScoreTitle)
         .font(.subheadline)
+        .onAppear {
+            viewModel.getSATScores()
+        }
     }
-}
-
-struct SATDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        SATDetailView(score: SATScore(dbn: "test", schoolName: "High School", numOfSatTestTakers: "200", satCriticalReadingAvgScore: "100", satMathAvgScore: "100", satWritingAvgScore: "100"))
+    
+    @ViewBuilder
+    func getScoreView() -> some View {
+        VStack {
+            HStack {
+                Text(score?.schoolName ?? "")
+                    .font(.title3)
+                Spacer()
+            }
+            .padding(.bottom, 10)
+            HStack {
+                Text(Constants.writingScore)
+                Text(score?.satWritingAvgScore ?? "")
+                Spacer()
+            }
+            HStack {
+                Text(Constants.mathScore)
+                Text(score?.satMathAvgScore ?? "")
+                Spacer()
+            }
+            HStack {
+                Text(Constants.readingScore)
+                Text(score?.satCriticalReadingAvgScore ?? "")
+                Spacer()
+            }
+            Spacer()
+        }
     }
 }

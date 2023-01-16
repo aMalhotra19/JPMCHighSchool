@@ -10,52 +10,37 @@ import SwiftUI
 struct HighSchoolView: View {
     @ObservedObject var viewModel: HighSchoolViewModel
     var body: some View {
-        Group {
-            switch viewModel.schoolState {
-            case .loading:
-                ProgressView()
-            case .success:
-                loadDetailView()
-                    .onAppear {
-                        if viewModel.schools.count > 0 {
-                            viewModel.getSATScores()
-                        }
-                    }
-            case .failure(let error):
-                ErrorView(error: error.localizedDescription)
+        List {
+            ForEach(viewModel.schools, id: \.dbn) { school in
+                NavigationLink {
+                    SATDetailView(school: school, viewModel: viewModel)
+                } label: {
+                    Text(school.schoolName)
+                }
             }
         }
+        .overlay(overlayView)
+        .padding(.bottom, 20)
     }
     
+    // cases handler fetching data
     @ViewBuilder
-    func loadDetailView() -> some View {
-        switch viewModel.scoreState {
-        case .success:
-            List {
-                ForEach(viewModel.schools, id: \.dbn) { school in
-                    NavigationLink {
-                        if let score = viewModel.getSatScoreFor(school.dbn) {
-                            SATDetailView(score: score)
-                        } else {
-                            ErrorView(error: Constants.noData)
-                        }
-                    } label: {
-                        Text(school.schoolName)
-                    }
-                }
-            }.refreshable {
-                refreshTask()
-            }
-        case .failure(_):
-            Text(Constants.retryError)
+    private var overlayView: some View {
+        switch viewModel.schoolState {
+            // Display loading indicator during API call
         case .loading:
             ProgressView()
-        }
-    }
-    
-    private func refreshTask() {
-        DispatchQueue.main.async {
-            viewModel.getSchoolData()
+            
+            // Success with no results
+        case .success where viewModel.schools.isEmpty:
+            ErrorView(error: Constants.noData)
+            
+            // Fail with error
+        case .failure(let error):
+            ErrorView(error: error.localizedDescription)
+            
+            //Success with data
+        default: EmptyView()
         }
     }
 }

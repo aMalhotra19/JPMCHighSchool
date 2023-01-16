@@ -32,22 +32,27 @@ class HighSchoolViewModel: ObservableObject {
         self.manager = manager
     }
     
+    @MainActor
     func getSchoolData() {
+        if schools.count > 0 {
+            return
+        }
         schoolState = .loading
         return manager.getSchoolData()
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .failure(let error):
-                    self.schoolState = .failure(error)
+                    self?.schoolState = .failure(error)
                 case .finished:
-                    self.schoolState = .success
+                    self?.schoolState = .success
                 }
-            }, receiveValue: { schools in
-                self.schools = schools
+            }, receiveValue: { [weak self] schools in
+                self?.schools = schools
             })
             .store(in: &cancellables)
     }
     
+    @MainActor
     func getSATScores() {
         if scores.count > 0 {
             return
@@ -55,20 +60,19 @@ class HighSchoolViewModel: ObservableObject {
         scoreState = .loading
         manager.urlString = Constants.urlSatResult
         manager.getScoreData()
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .failure(let error):
-                    self.scoreState = .failure(error)
+                    self?.scoreState = .failure(error)
                 case .finished:
-                    self.scoreState = .success
+                    self?.scoreState = .success
                 }
-            }, receiveValue: { scores in
-                self.scores = scores
+            }, receiveValue: { [weak self] scores in
+                self?.scores = scores
             })
             .store(in: &cancellables)
     }
 
-    @MainActor
     func getSatScoreFor(_ id: String) -> SATScore? {
         if scores.count > 0 {
             return scores.first { $0.dbn == id }

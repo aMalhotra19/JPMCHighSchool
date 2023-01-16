@@ -10,13 +10,14 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var viewModel = HighSchoolViewModel()
     var body: some View {
-        VStack {
-            NavigationView {
-                HighSchoolView(viewModel: viewModel)
-                    .navigationTitle("High Schools")
-            }
+        NavigationView {
+            HighSchoolView(viewModel: viewModel)
+                .navigationTitle("High Schools")
+                .task{viewModel.getSchoolData()}
+                .refreshable {
+                    viewModel.getSchoolData()
+                }
         }
-        .onAppear{viewModel.getSchoolData()}
     }
 }
 
