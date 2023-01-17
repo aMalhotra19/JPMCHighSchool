@@ -46,7 +46,7 @@ class HighSchoolViewModel: ObservableObject {
                     self?.schoolState = .success
                 }
             }, receiveValue: { [weak self] schools in
-                self?.schools = schools
+                self?.schools += schools
             })
             .store(in: &cancellables)
     }
@@ -70,7 +70,7 @@ class HighSchoolViewModel: ObservableObject {
                     self?.scoreState = .success
                 }
             }, receiveValue: { [weak self] scores in
-                self?.scores = scores
+                self?.scores += scores
             })
             .store(in: &cancellables)
     }

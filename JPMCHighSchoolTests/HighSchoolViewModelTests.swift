@@ -10,7 +10,7 @@ import XCTest
 import Combine
 
 @MainActor
-final class JPMCHighSchoolModelTests: XCTestCase {
+final class HighSchoolViewModelTests: XCTestCase {
     private var model: HighSchoolViewModel!
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,10 +28,38 @@ final class JPMCHighSchoolModelTests: XCTestCase {
         XCTAssertTrue(!model.schools.isEmpty)
     }
     
+    func testGetSchoolData_WhenDataIsAlreayPresent() throws {
+        XCTAssertTrue(model.schools.isEmpty)
+        // Make API call
+        model.getSchoolData()
+        XCTAssertEqual(model.schools.count, 1)
+        
+        //API call doesnot happen when data is already present
+        model.getSchoolData()
+        XCTAssertEqual(model.schools.count, 1)
+    }
+    
     func testGetSATScores() throws {
         XCTAssertTrue(model.scores.isEmpty)
         model.getSATScores()
         XCTAssertTrue(!model.scores.isEmpty)
+    }
+    
+    func testGetScoreData_WhenDataIsAlreayPresent() throws {
+        XCTAssertTrue(model.scores.isEmpty)
+        // Make API call
+        model.getSATScores()
+        XCTAssertEqual(model.scores.count, 1)
+        
+        //API call doesnot happen when data is already present
+        model.getSATScores()
+        XCTAssertEqual(model.scores.count, 1)
+    }
+    
+    func testGetSATScoresFor_WhenScoreIsEmpty() throws {
+        let score = model.getSatScoreFor("test")
+        XCTAssertTrue(model.scores.isEmpty)
+        XCTAssertNil(score)
     }
     
     func testGetSatScoreFor() throws {

@@ -55,4 +55,34 @@ final class NetworkServiceTests: XCTestCase {
         XCTAssertNotNil(responseData)
     }
     
+    func testGetData_ReturnError() throws {
+        //Invalid URL Error
+        let result = networkService.getData(url: URL(string: "www.google.com")!)
+        var error: Error?
+        var responseData: Data? = nil
+        let expectation = self.expectation(description: "Expectation")
+        result
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let returnedError):
+                    error = returnedError
+                }
+                
+                // Fullfilling our expectation to unblock
+                // our test execution:
+                expectation.fulfill()
+            } receiveValue: { data in
+                responseData = data
+            }
+            .store(in: &cancellables)
+        
+        waitForExpectations(timeout: 10)
+        
+        // Asserting that our Combine pipeline yielded the
+        // correct output:
+        XCTAssertNotNil(error)
+        XCTAssertNil(responseData)
+    }
 }
