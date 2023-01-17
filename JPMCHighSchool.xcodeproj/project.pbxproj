@@ -23,6 +23,7 @@
 		9DDC200A2974C5B600014F0E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC20092974C5B600014F0E /* ErrorView.swift */; };
 		9DDC200D2974DF2300014F0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC200C2974DF2300014F0E /* Constants.swift */; };
 		9DDC200F2974FECD00014F0E /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC200E2974FECD00014F0E /* HTTPError.swift */; };
+		9DDC2011297663AD00014F0E /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC2010297663AD00014F0E /* NetworkServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		9DDC20092974C5B600014F0E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9DDC200C2974DF2300014F0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9DDC200E2974FECD00014F0E /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		9DDC2010297663AD00014F0E /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				9DDC1FDF2973D92F00014F0E /* JPMCHighSchoolModelTests.swift */,
+				9DDC2010297663AD00014F0E /* NetworkServiceTests.swift */,
 			);
 			path = JPMCHighSchoolTests;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DDC2011297663AD00014F0E /* NetworkServiceTests.swift in Sources */,
 				9DDC1FE02973D92F00014F0E /* JPMCHighSchoolModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
