@@ -8,11 +8,10 @@
 import Foundation
 import Combine
 
-class NetworkService {
+final class NetworkService {
     //Shared class to make API calls and returns DATA returned from services
     static var shared: NetworkService = NetworkService()
     private init() {}
-    
     
     ///getData:
     ///params: url

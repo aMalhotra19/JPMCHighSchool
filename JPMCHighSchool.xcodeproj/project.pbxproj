@@ -11,7 +11,7 @@
 		9DDC1FD12973D92D00014F0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FD02973D92D00014F0E /* ContentView.swift */; };
 		9DDC1FD32973D92F00014F0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC1FD22973D92F00014F0E /* Assets.xcassets */; };
 		9DDC1FD62973D92F00014F0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC1FD52973D92F00014F0E /* Preview Assets.xcassets */; };
-		9DDC1FE02973D92F00014F0E /* JPMCHighSchoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FDF2973D92F00014F0E /* JPMCHighSchoolTests.swift */; };
+		9DDC1FE02973D92F00014F0E /* JPMCHighSchoolModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FDF2973D92F00014F0E /* JPMCHighSchoolModelTests.swift */; };
 		9DDC1FEA2973D92F00014F0E /* JPMCHighSchoolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FE92973D92F00014F0E /* JPMCHighSchoolUITests.swift */; };
 		9DDC1FEC2973D92F00014F0E /* JPMCHighSchoolUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FEB2973D92F00014F0E /* JPMCHighSchoolUITestsLaunchTests.swift */; };
 		9DDC1FFB2973DB3500014F0E /* HighSchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC1FFA2973DB3500014F0E /* HighSchoolViewModel.swift */; };
@@ -49,7 +49,7 @@
 		9DDC1FD22973D92F00014F0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DDC1FD52973D92F00014F0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9DDC1FDB2973D92F00014F0E /* JPMCHighSchoolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JPMCHighSchoolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DDC1FDF2973D92F00014F0E /* JPMCHighSchoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPMCHighSchoolTests.swift; sourceTree = "<group>"; };
+		9DDC1FDF2973D92F00014F0E /* JPMCHighSchoolModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPMCHighSchoolModelTests.swift; sourceTree = "<group>"; };
 		9DDC1FE52973D92F00014F0E /* JPMCHighSchoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JPMCHighSchoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DDC1FE92973D92F00014F0E /* JPMCHighSchoolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPMCHighSchoolUITests.swift; sourceTree = "<group>"; };
 		9DDC1FEB2973D92F00014F0E /* JPMCHighSchoolUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPMCHighSchoolUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		9DDC1FDE2973D92F00014F0E /* JPMCHighSchoolTests */ = {
 			isa = PBXGroup;
 			children = (
-				9DDC1FDF2973D92F00014F0E /* JPMCHighSchoolTests.swift */,
+				9DDC1FDF2973D92F00014F0E /* JPMCHighSchoolModelTests.swift */,
 			);
 			path = JPMCHighSchoolTests;
 			sourceTree = "<group>";
@@ -344,7 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DDC1FE02973D92F00014F0E /* JPMCHighSchoolTests.swift in Sources */,
+				9DDC1FE02973D92F00014F0E /* JPMCHighSchoolModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

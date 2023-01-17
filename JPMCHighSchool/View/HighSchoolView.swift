@@ -15,7 +15,16 @@ struct HighSchoolView: View {
                 NavigationLink {
                     SATDetailView(school: school, viewModel: viewModel)
                 } label: {
-                    Text(school.schoolName)
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(school.schoolName)
+                            .font(.headline)
+                        Text(school.primaryAddressLine1)
+                        HStack {
+                            Text("City:")
+                            Text(school.city)
+                        }
+                        Text(school.website)
+                    }
                 }
             }
         }

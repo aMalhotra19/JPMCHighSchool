@@ -15,20 +15,15 @@ enum State {
 }
 
 class HighSchoolViewModel: ObservableObject {
-    @Published var schools: [HighSchool]
-    @Published var scores: SATScores
+    @Published var schools: [HighSchool] = []
+    @Published var scores: SATScores = []
     @Published var score: SATScore?
-    @Published private(set) var schoolState: State
-    @Published private(set) var scoreState: State
+    @Published private(set) var schoolState: State = .loading
+    @Published private(set) var scoreState: State = .loading
     var cancellables = Set<AnyCancellable>()
-    var manager: NetworkManager
+    let manager: ApiCreator
     
-    init(schools: [HighSchool] = [], scores: SATScores = [], score: SATScore? = nil, schoolState: State = .loading, scoreState: State = .loading, manager: NetworkManager = NetworkManager(urlString: Constants.urlHighSchool)) {
-        self.schools = schools
-        self.scores = scores
-        self.score = score
-        self.schoolState = schoolState
-        self.scoreState = scoreState
+    init(manager: ApiCreator = NetworkManager(urlString: Constants.urlHighSchool)) {
         self.manager = manager
     }
     

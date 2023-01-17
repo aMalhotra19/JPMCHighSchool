@@ -8,8 +8,10 @@
 import Foundation
 import Combine
 
-protocol ApiCreator {
-    var urlString: String { get }
+protocol ApiCreator: AnyObject {
+    var urlString: String { get set }
+    func getSchoolData() -> AnyPublisher<[HighSchool], HTTPError>
+    func getScoreData() -> AnyPublisher<SATScores, HTTPError>
 }
 
 class NetworkManager: ApiCreator {
