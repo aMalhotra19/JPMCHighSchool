@@ -11,7 +11,7 @@ import Combine
 
 @MainActor
 final class JPMCHighSchoolModelTests: XCTestCase {
-    var model: HighSchoolViewModel!
+    private var model: HighSchoolViewModel!
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         model = HighSchoolViewModel(manager: APICreatorMock(urlString: "test"))
@@ -46,13 +46,21 @@ final class JPMCHighSchoolModelTests: XCTestCase {
             self.urlString = urlString
         }
         
+        // Mock for getSchoolData and return publisher
+        // Output: [HighSchool]
+        // Error: HTTPError
         func getSchoolData() -> AnyPublisher<[JPMCHighSchool.HighSchool], JPMCHighSchool.HTTPError> {
+            
             let highSchool = [HighSchool(dbn: "test", schoolName: "test", primaryAddressLine1: "test", city: "test", stateCode: "test", zip: "test", website: "test", totalStudents: "test")]
-            return Just((highSchool))
+            return Just(highSchool)
                 .setFailureType(to: HTTPError.self)
                 .eraseToAnyPublisher()
         }
         
+        
+        // Mock for getScoreData and return publisher
+        // Output: [HighSchool]
+        // Error: HTTPError
         func getScoreData() -> AnyPublisher<JPMCHighSchool.SATScores, JPMCHighSchool.HTTPError> {
             let score = [SATScore(dbn: "test", schoolName: "test", numOfSatTestTakers: "test", satCriticalReadingAvgScore: "test", satMathAvgScore: "test", satWritingAvgScore: "test")]
             return Just(score)

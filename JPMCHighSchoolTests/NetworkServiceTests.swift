@@ -10,7 +10,7 @@ import XCTest
 import Combine
 
 final class NetworkServiceTests: XCTestCase {
-    var networkService: NetworkService!
+    private var networkService: NetworkService!
     private var cancellables: Set<AnyCancellable>!
     
     override func setUpWithError() throws {
