@@ -42,7 +42,7 @@ class HighSchoolViewModel: ObservableObject {
             return
         }
         schoolState = .loading
-        return manager.getSchoolData()
+        manager.getSchoolData()
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .failure(let error):

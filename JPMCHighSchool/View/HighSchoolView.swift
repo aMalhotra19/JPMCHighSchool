@@ -28,7 +28,7 @@ struct HighSchoolView: View {
         }
     }
     
-    func refreshAction() {
+    private func refreshAction() {
         viewModel.getSchoolData()
     }
     // cases handler fetching data
