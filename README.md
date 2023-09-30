@@ -1,4 +1,4 @@
-# JPMCHighSchool
+# JPMCHighSchool-Pankaj
 # Dear Reviewer, Thank you for taking time to review my code.
 
 Listing out the details of the code as below:
